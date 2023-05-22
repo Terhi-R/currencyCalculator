@@ -1,14 +1,27 @@
 ﻿using currencyCalculator.Business.Models;
+using currencyCalculator.Business.Services;
 
 namespace currencyCalculator.Business;
 
 public class Calculator
 {
     private RatesHandler _rates;
-    public Calculator() => _rates = new RatesHandler();
-    public double calculateCurrency(string fromCurrency, string toCurrency, double amount)
+    private readonly ICurrencyConverterClient _currencyConverterClient;
+    public Calculator()
+    {
+        _rates = new RatesHandler();
+        _currencyConverterClient = new CurrencyConverterClient();
+    }
+
+    public double calculateCurrency(string fromCurrency, string toCurrency, double amount, string? date = null)
     {
         if (fromCurrency is "" || toCurrency is "") throw new InvalidDataException();
+
+        if (date is not null)
+        {
+            var rateFromGivenDate = _currencyConverterClient.currencyRatesByDate(fromCurrency, toCurrency, date);
+            return rateFromGivenDate.Result.Rate * amount;
+        }
 
         var allRates = _rates.ReadCurrencies();
 

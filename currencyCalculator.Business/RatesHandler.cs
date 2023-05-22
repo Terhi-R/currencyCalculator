@@ -19,7 +19,6 @@ public class RatesHandler
                         {
                             FromCurrency = rate[1],
                             ToCurrency = rate[0],
-                            CurrencyName = rate[2],
                             Rate = Convert.ToDouble(rate[3], provider),
                             Date = rate[4]
                         })

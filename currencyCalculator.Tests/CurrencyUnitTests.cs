@@ -81,4 +81,17 @@ public class CurrencyUnitTests
         calculator.Should().Be(22.14);
         secondCalculator.Should().Be(2915.59); 
     }
+
+    [Fact]
+    public void calculator_gets_currency_rates_by_date_from_api()
+    {
+        //arrange
+        var calculatorClass = new Calculator();
+
+        //act
+        var calculator = calculatorClass.calculateCurrency("GBP", "EUR", 20, "2013-12-24");
+
+        //assert
+        calculator.Should().Be(23.929520000000004);
+    }
 }

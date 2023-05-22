@@ -1,31 +1,31 @@
 ToCurrency,FromCurrency,CurrencyName,Rate,Date
-USD,EUR,US dollar,1.0808,22May2023
-JPY,EUR,Japanese yen,149.55,22May2023
-BGN,EUR,Bulgarian lev,1.9558,22May2023
-CZK,EUR,Czech koruna,23.764,22May2023
-DKK,EUR,Danish krone,7.4481,22May2023
-GBP,EUR,Pound sterling,0.86840,22May2023
-HUF,EUR,Hungarian forint,376.73,22May2023
-PLN,EUR,Polish zloty,4.5205,22May2023
-RON,EUR,Romanian leu,4.9783,22May2023
-SEK,EUR,Swedish krona,11.3695,22May2023
-CHF,EUR,Swiss franc,0.9738,22May2023
-ISK,EUR,Icelandic krona,151.30,22May2023
-NOK,EUR,Norwegian krone,11.7010,22May2023
-TRY,EUR,Turkish lira,21.4089,22May2023
-AUD,EUR,Australian dollar,1.6231,22May2023
-BRL,EUR,Brazilian real,5.3554,22May2023
-CAD,EUR,Canadian dollar,1.4575,22May2023
-CNY,EUR,Chinese yuan renminbi,7.5766,22May2023
-HKD,EUR,Hong Kong dollar,8.4494,22May2023
-IDR,EUR,Indonesian rupiah,16129.14,22May2023
-ILS,EUR,Israeli shekel,3.9338,22May2023
-INR,EUR,Indian rupee,89.4215,22May2023
-KRW,EUR,South Korean won,1432.76,22May2023
-MXN,EUR,Mexican peso,19.0850,22May2023
-MYR,EUR,Malaysian ringgit,4.9052,22May2023
-NZD,EUR,New Zealand dollar,1.7206,22May2023
-PHP,EUR,Philippine peso,60.260,22May2023
-SGD,EUR,Singapore dollar,1.4538,22May2023
-THB,EUR,Thai baht,37.169,22May2023
-ZAR,EUR,South African rand,20.8848,22May2023
+USD,EUR,US dollar,1.0808,2023-05-22
+JPY,EUR,Japanese yen,149.55,2023-05-22
+BGN,EUR,Bulgarian lev,1.9558,2023-05-22
+CZK,EUR,Czech koruna,23.764,2023-05-22
+DKK,EUR,Danish krone,7.4481,2023-05-22
+GBP,EUR,Pound sterling,0.86840,2023-05-22
+HUF,EUR,Hungarian forint,376.73,2023-05-22
+PLN,EUR,Polish zloty,4.5205,2023-05-22
+RON,EUR,Romanian leu,4.9783,2023-05-22
+SEK,EUR,Swedish krona,11.3695,2023-05-22
+CHF,EUR,Swiss franc,0.9738,2023-05-22
+ISK,EUR,Icelandic krona,151.30,2023-05-22
+NOK,EUR,Norwegian krone,11.7010,2023-05-22
+TRY,EUR,Turkish lira,21.4089,2023-05-22
+AUD,EUR,Australian dollar,1.6231,2023-05-22
+BRL,EUR,Brazilian real,5.3554,2023-05-22
+CAD,EUR,Canadian dollar,1.4575,2023-05-22
+CNY,EUR,Chinese yuan renminbi,7.5766,2023-05-22
+HKD,EUR,Hong Kong dollar,8.4494,2023-05-22
+IDR,EUR,Indonesian rupiah,16129.14,2023-05-22
+ILS,EUR,Israeli shekel,3.9338,2023-05-22
+INR,EUR,Indian rupee,89.4215,2023-05-22
+KRW,EUR,South Korean won,1432.76,2023-05-22
+MXN,EUR,Mexican peso,19.0850,2023-05-22
+MYR,EUR,Malaysian ringgit,4.9052,2023-05-22
+NZD,EUR,New Zealand dollar,1.7206,2023-05-22
+PHP,EUR,Philippine peso,60.260,2023-05-22
+SGD,EUR,Singapore dollar,1.4538,2023-05-22
+THB,EUR,Thai baht,37.169,2023-05-22
+ZAR,EUR,South African rand,20.8848,2023-05-22
