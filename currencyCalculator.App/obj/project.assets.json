@@ -14,6 +14,16 @@
             "related": ".xml"
           }
         }
+      },
+      "currencyCalculator.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/currencyCalculator.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/currencyCalculator.Business.dll": {}
+        }
       }
     }
   },
@@ -47,11 +57,17 @@
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
+    },
+    "currencyCalculator.Business/1.0.0": {
+      "type": "project",
+      "path": "../currencyCalculator.Business/currencyCalculator.Business.csproj",
+      "msbuildProject": "../currencyCalculator.Business/currencyCalculator.Business.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Newtonsoft.json >= 13.0.3"
+      "Newtonsoft.json >= 13.0.3",
+      "currencyCalculator.Business >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -78,7 +94,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.Business/currencyCalculator.Business.csproj": {
+              "projectPath": "/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.Business/currencyCalculator.Business.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

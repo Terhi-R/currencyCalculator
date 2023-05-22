@@ -15,3 +15,5 @@
 /Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/obj/Debug/net7.0/currencyCalculator.App.pdb
 /Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/obj/Debug/net7.0/currencyCalculator.App.genruntimeconfig.cache
 /Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/obj/Debug/net7.0/ref/currencyCalculator.App.dll
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/bin/Debug/net7.0/currencyCalculator.Business.dll
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/bin/Debug/net7.0/currencyCalculator.Business.pdb
