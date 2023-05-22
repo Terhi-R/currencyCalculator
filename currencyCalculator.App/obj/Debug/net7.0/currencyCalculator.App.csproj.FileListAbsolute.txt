@@ -1,0 +1,17 @@
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/bin/Debug/net7.0/currencyCalculator.App
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/bin/Debug/net7.0/currencyCalculator.App.deps.json
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/bin/Debug/net7.0/currencyCalculator.App.runtimeconfig.json
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/bin/Debug/net7.0/currencyCalculator.App.dll
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/bin/Debug/net7.0/currencyCalculator.App.pdb
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/obj/Debug/net7.0/currencyCalculator.App.csproj.AssemblyReference.cache
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/obj/Debug/net7.0/currencyCalculator.App.GeneratedMSBuildEditorConfig.editorconfig
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/obj/Debug/net7.0/currencyCalculator.App.AssemblyInfoInputs.cache
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/obj/Debug/net7.0/currencyCalculator.App.AssemblyInfo.cs
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/obj/Debug/net7.0/currencyCalculator.App.csproj.CoreCompileInputs.cache
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/obj/Debug/net7.0/currencyCalculator.App.csproj.CopyComplete
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/obj/Debug/net7.0/currencyCalculator.App.dll
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/obj/Debug/net7.0/refint/currencyCalculator.App.dll
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/obj/Debug/net7.0/currencyCalculator.App.pdb
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/obj/Debug/net7.0/currencyCalculator.App.genruntimeconfig.cache
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/obj/Debug/net7.0/ref/currencyCalculator.App.dll

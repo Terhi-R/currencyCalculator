@@ -1,0 +1,12 @@
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.Business/bin/Debug/net7.0/currencyCalculator.Business.deps.json
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.Business/bin/Debug/net7.0/currencyCalculator.Business.dll
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.Business/bin/Debug/net7.0/currencyCalculator.Business.pdb
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.Business/obj/Debug/net7.0/currencyCalculator.Business.csproj.AssemblyReference.cache
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.Business/obj/Debug/net7.0/currencyCalculator.Business.GeneratedMSBuildEditorConfig.editorconfig
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.Business/obj/Debug/net7.0/currencyCalculator.Business.AssemblyInfoInputs.cache
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.Business/obj/Debug/net7.0/currencyCalculator.Business.AssemblyInfo.cs
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.Business/obj/Debug/net7.0/currencyCalculator.Business.csproj.CoreCompileInputs.cache
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.Business/obj/Debug/net7.0/currencyCalculator.Business.dll
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.Business/obj/Debug/net7.0/refint/currencyCalculator.Business.dll
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.Business/obj/Debug/net7.0/currencyCalculator.Business.pdb
+/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.Business/obj/Debug/net7.0/ref/currencyCalculator.Business.dll

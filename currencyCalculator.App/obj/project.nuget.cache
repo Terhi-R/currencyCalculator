@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "etShyAsNGpdfHlqeiA7ybHhku01oMqto8zBk6U3ybxWd+5Hlub8snFSAr59LMxAwWRh4McBOVqSM1P6ai5kQ+Q==",
+  "success": true,
+  "projectFilePath": "/Users/terhiraudaskoski/Documents/GitHubProjects/Riv/currencyCalculator/currencyCalculator.App/currencyCalculator.App.csproj",
+  "expectedPackageFiles": [
+    "/Users/terhiraudaskoski/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
