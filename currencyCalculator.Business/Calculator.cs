@@ -5,9 +5,9 @@ namespace currencyCalculator.Business;
 
 public class Calculator
 {
-    private readonly RatesHandler _rates;
+    private readonly IRatesHandler _rates;
     private readonly ICurrencyConverterClient _currencyConverterClient;
-    public Calculator()
+    public Calculator(IRatesHandler ratesHandler, ICurrencyConverterClient currencyConverter)
     {
         _rates = new RatesHandler();
         _currencyConverterClient = new CurrencyConverterClient();
@@ -19,7 +19,8 @@ public class Calculator
 
         if (date is not null)
         {
-            var rateFromGivenDate = _currencyConverterClient.CurrencyRatesByDate(fromCurrency, toCurrency, date);
+            var rateFromGivenDate = _currencyConverterClient
+                                        .CurrencyRatesByDate(fromCurrency, toCurrency, date);
             return rateFromGivenDate.Result.Rate * amount;
         }
 

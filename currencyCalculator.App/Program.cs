@@ -1,19 +1,26 @@
 ﻿using currencyCalculator.Business;
+using currencyCalculator.Business.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace currencyCalculator.App;
-
 class Program
 {
+    public static IRatesHandler? _rates { get; private set; }
+    public static ICurrencyConverterClient? _currencyConverterClient { get; private set; }
+    public Program()
+    {
+        _rates = new RatesHandler();
+        _currencyConverterClient = new CurrencyConverterClient();
+    }
     static void Main(string[] args)
     {
         SeedData.Initialize();
-       /*  RunConsole(); */
-    }
-
+        RunConsole();
+    }    
     public static void RunConsole()
     {
-        var ratesCalculator = new Calculator();
+        var ratesCalculator = new Calculator(_rates!, _currencyConverterClient!);
         Console.WriteLine("Currency Rate Calculator");
         Console.WriteLine("Submit in format FromCurrency,ToCurrency,Amount,Date | Date is optional and is given in following format: YEAR-MM-DD.");
         Console.WriteLine("Example: EUR,USD,10 | Please communicate currencies in currency codes");

@@ -9,5 +9,4 @@ public class CurrencyRate
     public required string ToCurrency { get; set; }
     public required double Rate { get; set; }
     public required string Date { get; set; }
-
 }

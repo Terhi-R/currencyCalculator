@@ -9,13 +9,30 @@ public class CurrencyResponse
     public required string BaseCurrency { get; set; }
     [JsonPropertyName("rates")]
     public required Dictionary<string,double> Rates { get; set; }
-    public string ToCurrency { 
+    public List<CurrencyRate> CurrencyRates
+    {
+        get
+        {
+            return Rates
+                    .Select(rate => new CurrencyRate
+                                    {
+                                        FromCurrency = BaseCurrency,
+                                        ToCurrency = rate.Key,
+                                        Rate = rate.Value,
+                                        Date = Date
+                                    }) 
+                    .ToList();
+        }
+    }
+    public string ToCurrency 
+    { 
         get
         {
             return Rates.Keys.First();
         }
     }
-    public double Rate {
+    public double Rate 
+    {
         get
         {
             return Rates.Values.First();
