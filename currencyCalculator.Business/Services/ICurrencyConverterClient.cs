@@ -4,5 +4,5 @@ namespace currencyCalculator.Business.Services;
 
 public interface ICurrencyConverterClient
 {
-    Task<CurrencyResponse> currencyRatesByDate(string date, string toCurrency, string fromCurrency);
+    Task<CurrencyResponse> CurrencyRatesByDate(string date, string toCurrency, string fromCurrency);
 }

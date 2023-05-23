@@ -13,8 +13,6 @@ public class ApplicationDbContext : DbContext
 
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
-        //config.GetSection("ConnectionStrings:DefaultConnection").Value
-        //config.GetConnectionString("DefaultConnection")
     }
         public DbSet<currencyCalculator.Business.Models.CurrencyRate> CurrencyRate { get; set; }
     }

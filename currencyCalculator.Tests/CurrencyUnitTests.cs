@@ -9,7 +9,7 @@ public class CurrencyUnitTests
         var calculatorClass = new Calculator();
 
         //act
-        var calculator = calculatorClass.calculateCurrency("EUR", "NOK", 1.0);
+        var calculator = calculatorClass.CalculateCurrency("EUR", "NOK", 1.0);
 
         //assert
         calculator.Should().Be(11.7010);
@@ -22,7 +22,7 @@ public class CurrencyUnitTests
         var calculatorClass = new Calculator();
 
         //act
-        var calculator = () => calculatorClass.calculateCurrency("", "", 1.0);
+        var calculator = () => calculatorClass.CalculateCurrency("", "", 1.0);
 
         //assert
         calculator.Should().Throw<InvalidDataException>();
@@ -35,7 +35,7 @@ public class CurrencyUnitTests
         var calculatorClass = new Calculator();
 
         //act
-        var calculator = () => calculatorClass.calculateCurrency("Fiction", "Fictionary", 1.0);
+        var calculator = () => calculatorClass.CalculateCurrency("Fiction", "Fictionary", 1.0);
 
         //assert
         calculator.Should().Throw<ArgumentNullException>();
@@ -48,7 +48,7 @@ public class CurrencyUnitTests
         var calculatorClass = new Calculator();
 
         //act
-        var calculator = calculatorClass.calculateCurrency("EUR", "USD", 50);
+        var calculator = calculatorClass.CalculateCurrency("EUR", "USD", 50);
 
         //assert
         calculator.Should().Be(54.04);
@@ -61,7 +61,7 @@ public class CurrencyUnitTests
         var calculatorClass = new Calculator();
 
         //act
-        var calculator = calculatorClass.calculateCurrency("EUR", "CHF", 84.9);
+        var calculator = calculatorClass.CalculateCurrency("EUR", "CHF", 84.9);
 
         //assert
         calculator.Should().Be(82.67562000000001);
@@ -74,8 +74,8 @@ public class CurrencyUnitTests
         var calculatorClass = new Calculator();
 
         //act
-        var calculator = calculatorClass.calculateCurrency("USD", "CHF", 20);
-        var secondCalculator = calculatorClass.calculateCurrency("PLN", "ISK", 20);
+        var calculator = calculatorClass.CalculateCurrency("USD", "CHF", 20);
+        var secondCalculator = calculatorClass.CalculateCurrency("PLN", "ISK", 20);
 
         //assert
         calculator.Should().Be(22.14);
@@ -89,7 +89,7 @@ public class CurrencyUnitTests
         var calculatorClass = new Calculator();
 
         //act
-        var calculator = calculatorClass.calculateCurrency("GBP", "EUR", 20, "2013-12-24");
+        var calculator = calculatorClass.CalculateCurrency("GBP", "EUR", 20, "2013-12-24");
 
         //assert
         calculator.Should().Be(23.929520000000004);

@@ -13,13 +13,13 @@ public class Calculator
         _currencyConverterClient = new CurrencyConverterClient();
     }
 
-    public double calculateCurrency(string fromCurrency, string toCurrency, double amount, string? date = null)
+    public double CalculateCurrency(string fromCurrency, string toCurrency, double amount, string? date = null)
     {
         if (fromCurrency is "" || toCurrency is "") throw new InvalidDataException();
 
         if (date is not null)
         {
-            var rateFromGivenDate = _currencyConverterClient.currencyRatesByDate(fromCurrency, toCurrency, date);
+            var rateFromGivenDate = _currencyConverterClient.CurrencyRatesByDate(fromCurrency, toCurrency, date);
             return rateFromGivenDate.Result.Rate * amount;
         }
 

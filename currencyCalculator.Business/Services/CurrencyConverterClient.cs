@@ -6,7 +6,7 @@ namespace currencyCalculator.Business.Services;
 
 public class CurrencyConverterClient : ICurrencyConverterClient
 {
-    public async Task<CurrencyResponse> currencyRatesByDate(string fromCurrency, string toCurrency, string date)
+    public async Task<CurrencyResponse> CurrencyRatesByDate(string fromCurrency, string toCurrency, string date)
     {
         var client = new HttpClient(); 
         client.DefaultRequestHeaders.Accept.Clear();
