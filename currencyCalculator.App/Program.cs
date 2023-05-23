@@ -7,21 +7,31 @@ class Program
     static void Main(string[] args)
     {
         var ratesCalculator = new Calculator();
-        Console.WriteLine("Currency Rate Calculator \n Submit in format FromCurrency,ToCurrency,Amount,Date | Date is optional. (Example: EUR,USD,10) \n Please communicate currencies in currency codes");
+        Console.WriteLine("Currency Rate Calculator");
+        Console.WriteLine("Submit in format FromCurrency,ToCurrency,Amount,Date | Date is optional and is given in following format: YEAR-MM-DD.");
+        Console.WriteLine("Example: EUR,USD,10 | Please communicate currencies in currency codes");
         var input = Console.ReadLine()?.Split(",");
-        
-        if (input is null || input[0] is null || input[1] is null || input[2] is null)
+
+        if (input is null || input[0] is null || input[1] is null || input[2] is null)
         {
-            Console.WriteLine("Invalid input. Please state all three values: FromCurrency,ToCurrency,Amount");
+            Console.WriteLine("Invalid input. Please state all three values: From Currency,To Currency,Amount");
+            return;
         }
+
+        var fromCurrency = input[0].Trim();
+        var toCurrency = input[1].Trim();
+        var amount = input[2].Trim();
+    
 
         if (input is not null && input.Length is 3)
         {
-            var currentRate = ratesCalculator.calculateCurrency(input![0], input[1], Convert.ToDouble(input[2]));
-            Console.WriteLine($"{input[2]} {input[0]} is {currentRate} {input[1]}");
+            var currentRate = ratesCalculator.calculateCurrency(fromCurrency, toCurrency, Convert.ToDouble(amount));
+            Console.WriteLine($"{amount} {fromCurrency} is {currentRate} {toCurrency}");
+            return;
         }
 
-        var rateByDate = ratesCalculator.calculateCurrency(input![0],input[1],Convert.ToDouble(input[2]), input[3]);
-        Console.WriteLine($"{input[2]} {input[0]} is {rateByDate} {input[1]}");
+        var rateByDate = ratesCalculator.calculateCurrency(fromCurrency,toCurrency,Convert.ToDouble(amount), input![3]);
+        Console.WriteLine($"{amount} {fromCurrency} is {rateByDate} {toCurrency}");
+        return;
     }
 }

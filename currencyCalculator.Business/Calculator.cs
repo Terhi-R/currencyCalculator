@@ -5,7 +5,7 @@ namespace currencyCalculator.Business;
 
 public class Calculator
 {
-    private RatesHandler _rates;
+    private readonly RatesHandler _rates;
     private readonly ICurrencyConverterClient _currencyConverterClient;
     public Calculator()
     {

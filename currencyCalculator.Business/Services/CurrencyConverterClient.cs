@@ -15,6 +15,7 @@ public class CurrencyConverterClient : ICurrencyConverterClient
 
         var url = $"https://api.apilayer.com/fixer/{date}?symbols={toCurrency}&base={fromCurrency}";
         var currencyTask = client.GetStreamAsync(url);
+
         return await JsonSerializer.DeserializeAsync<CurrencyResponse>(await currencyTask);
     }
 }

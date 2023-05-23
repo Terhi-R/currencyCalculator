@@ -83,7 +83,7 @@ public class CurrencyUnitTests
     }
 
     [Fact]
-    public void calculator_gets_currency_rates_by_date_from_api()
+    public void calculator_gets_currency_rates_by_date_from_external_api()
     {
         //arrange
         var calculatorClass = new Calculator();

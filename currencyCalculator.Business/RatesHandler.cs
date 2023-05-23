@@ -12,15 +12,16 @@ public class RatesHandler
         var provider = new NumberFormatInfo();
         provider.NumberDecimalSeparator = ".";
         provider.NumberGroupSeparator = ",";
+
         var rates = currencyRatesData
-                        .Select(currencyRate => currencyRate.Split(","))
+                        .Select(line => line.Split(","))
                         .Where(line => !line.Contains("Date"))
-                        .Select(rate => new CurrencyRate()
+                        .Select(line => new CurrencyRate()
                         {
-                            FromCurrency = rate[1],
-                            ToCurrency = rate[0],
-                            Rate = Convert.ToDouble(rate[3], provider),
-                            Date = rate[4]
+                            FromCurrency = line[1],
+                            ToCurrency = line[0],
+                            Rate = Convert.ToDouble(line[3], provider),
+                            Date = line[4]
                         })
                         .ToList();
         return rates;
