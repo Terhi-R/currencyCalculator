@@ -43,5 +43,4 @@ public class Calculator
         if (calculateRate is 0.0) return rateFromEUR * amount;
         return calculateRate;
     }
-
 }

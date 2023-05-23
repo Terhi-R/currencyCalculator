@@ -17,7 +17,7 @@ class Program
     {
         SeedData.Initialize();
         RunConsole();
-    }    
+    }
     public static void RunConsole()
     {
         var ratesCalculator = new Calculator(_rates!, _currencyConverterClient!);
