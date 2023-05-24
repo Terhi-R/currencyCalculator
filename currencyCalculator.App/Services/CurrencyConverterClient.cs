@@ -15,8 +15,9 @@ public class CurrencyConverterClient : ICurrencyConverterClient
 
         var url = $"https://api.apilayer.com/fixer/{date}?symbols={toCurrency}&base={fromCurrency}";
         var currencyTask = client.GetStreamAsync(url);
-        
-        return await JsonSerializer.DeserializeAsync<CurrencyResponse>(await currencyTask);
+
+        return await JsonSerializer.DeserializeAsync<CurrencyResponse>(await currencyTask) ??
+               throw new ArgumentNullException();
     }
 
     public async Task<LatestRateResponse> LatestCurrencyRates(string baseCurrency, string toCurrencies)
@@ -29,6 +30,7 @@ public class CurrencyConverterClient : ICurrencyConverterClient
         var url = $"https://api.apilayer.com/fixer/latest?symbols={toCurrencies}&base={baseCurrency}";
         var currencyTask = client.GetStreamAsync(url);
 
-        return await JsonSerializer.DeserializeAsync<LatestRateResponse>(await currencyTask);
+        return await JsonSerializer.DeserializeAsync<LatestRateResponse>(await currencyTask) ??
+               throw new ArgumentNullException();
     }
 }

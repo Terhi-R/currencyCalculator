@@ -7,7 +7,7 @@ public class RatesHandler : IRatesHandler
 {
     public List<CurrencyRate> ReadCurrencies()
     {
-        var path = Directory.GetParent(Environment.CurrentDirectory).FullName + "/data/rates.csv";
+        var path = Directory.GetParent(Environment.CurrentDirectory)?.FullName + "/data/rates.csv";
         if (path.Contains(".Tests/bin")) 
         {
             path = path.Split("/currencyCalculator.Tests")[0] + "/data/rates.csv";

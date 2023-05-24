@@ -33,7 +33,7 @@ public class InvokeDb : IInvocable
                 validRates.Add(newRate);
             }
 
-            context.CurrencyRate.AddRange(validRates);
+            context.CurrencyRate?.AddRange(validRates);
             context.SaveChanges();
         }
         return Task.CompletedTask;

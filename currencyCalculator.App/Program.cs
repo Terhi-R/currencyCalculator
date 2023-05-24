@@ -16,7 +16,8 @@ class Program
             .BuildServiceProvider();
         _rates = serviceProvider.GetService<IRatesHandler>();
         _currencyConverterClient = serviceProvider.GetService<ICurrencyConverterClient>();
-        
+        if (_rates is null) throw new ArgumentNullException();
+        SeedData.Configure(_rates);
         SeedData.Initialize();
         RunConsole();
     }
