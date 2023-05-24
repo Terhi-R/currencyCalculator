@@ -96,7 +96,7 @@ public class CurrencyUnitTests
         calculator.Should().Be(expected);
     }
 
-/*     [Fact]
+     [Fact]
     public void calculator_gets_currency_rates_by_date_from_external_api()
     {
         //arrange
@@ -128,5 +128,5 @@ public class CurrencyUnitTests
         latestCurrencies.Result.BaseCurrency.Should().Be("EUR");
         latestCurrencies.Result.CurrencyRates.Count.Should().Be(3);
         foundCurrencyRates[0].ToCurrency.Should().Be("USD");
-    }   */
+    }   
 }
