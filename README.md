@@ -13,7 +13,7 @@ App:
     - optional input: Date. If user puts in date, data is taken from external api
 
 Worker:
-- With the help of Coravel, a scheduler posts latest rates to the database
+- With the help of Coravel, a scheduler posts latest rates to the database daily at 12 CET
 
 Tests:
 - Unit tests for the Calculator and external Api
