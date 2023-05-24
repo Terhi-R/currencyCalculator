@@ -23,7 +23,8 @@ class Program
     }
     public static void RunConsole()
     {
-        var ratesCalculator = new Calculator(_rates!, _currencyConverterClient!);
+        if (_rates is null || _currencyConverterClient is null) throw new ArgumentNullException();
+        var ratesCalculator = new Calculator(_rates, _currencyConverterClient);
         Console.WriteLine("Currency Rate Calculator");
         Console.WriteLine("Submit in format FromCurrency,ToCurrency,Amount,Date | Date is optional and is given in following format: YEAR-MM-DD.");
         Console.WriteLine("Example: EUR,USD,10 | Please communicate currencies in currency codes");
