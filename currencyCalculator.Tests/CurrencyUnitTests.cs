@@ -109,7 +109,7 @@ public class CurrencyUnitTests
     } 
 
     [Fact]
-    public void latestRates_are_found_successfylly_from_external_api()
+    public void latestRates_are_found_successfully_from_external_api()
     {
         //arrange
         ICurrencyConverterClient currencyClient = new CurrencyConverterClient();
