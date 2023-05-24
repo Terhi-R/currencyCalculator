@@ -1,5 +1,5 @@
-using currencyCalculator.Business.Services;
-using currencyCalculator.Business.Models;
+using currencyCalculator.App.Services;
+using currencyCalculator.App.Models;
 
 public static class SeedData
 {
@@ -9,7 +9,7 @@ public static class SeedData
     {
         using (var context = new ApplicationDbContext())
         {
-            if (context.CurrencyRate.Any()) { return; } 
+            if (context.CurrencyRate is null || context.CurrencyRate.Any()) { return; } 
 
             var allRates = _rates.ReadCurrencies();
             allRates.ForEach(rate => context.CurrencyRate.Add(rate));

@@ -1,4 +1,5 @@
-using currencyCalculator.Business.Services;
+using currencyCalculator.App.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Moq;
 
 namespace currencyCalculator.Tests;
@@ -6,13 +7,18 @@ namespace currencyCalculator.Tests;
 public class CurrencyUnitTests
 {
     Calculator calculatorClass;
-    IRatesHandler _ratesHandler;
-    ICurrencyConverterClient _currencyConverter;
-
+    private IRatesHandler _ratesHandler;
+    private ICurrencyConverterClient _currencyConverter;
     public CurrencyUnitTests()
     {
-        _ratesHandler = new RatesHandler();
-        _currencyConverter = new CurrencyConverterClient();
+        var serviceProvider = new ServiceCollection()
+                                .AddScoped<ICurrencyConverterClient, CurrencyConverterClient>()
+                                .AddScoped<IRatesHandler, RatesHandler>()
+                                .BuildServiceProvider();
+
+        _ratesHandler = serviceProvider.GetService<IRatesHandler>()!;
+        _currencyConverter = serviceProvider.GetService<ICurrencyConverterClient>()!;
+
         this.calculatorClass = new Calculator(_ratesHandler, _currencyConverter);
     }
     
@@ -76,21 +82,21 @@ public class CurrencyUnitTests
         calculator.Should().Be(82.67562000000001);
     }
 
-    [Fact]
-    public void calculator_calculates_from_other_currencies_than_EUR()
+    [Theory]
+    [InlineData("USD", "CHF", 20, 18.019985196150998)]
+    [InlineData("PLN", "ISK", 20, 669.3949784315895)]
+    [InlineData("NOK", "CHF", 400, 33.28946243910777)]
+    [InlineData("NOK", "EUR", 400, 34.18511238355696)]
+    public void calculator_calculates_for_many_cases(string from, string to, double amount, double expected)
     {
-        //arrange
-
         //act
-        var calculator = calculatorClass.CalculateCurrency("USD", "CHF", 20);
-        var secondCalculator = calculatorClass.CalculateCurrency("PLN", "ISK", 20);
+        var calculator = calculatorClass.CalculateCurrency(from, to, amount);
 
         //assert
-        calculator.Should().Be(22.14);
-        secondCalculator.Should().Be(2915.59); 
+        calculator.Should().Be(expected);
     }
 
-  /*   [Fact]
+    [Fact]
     public void calculator_gets_currency_rates_by_date_from_external_api()
     {
         //arrange
@@ -100,7 +106,7 @@ public class CurrencyUnitTests
 
         //assert
         calculator.Should().Be(23.929520000000004);
-    } */
+    } 
 
     [Fact]
     public void latestRates_are_found_successfylly_from_external_api()
@@ -122,5 +128,5 @@ public class CurrencyUnitTests
         latestCurrencies.Result.BaseCurrency.Should().Be("EUR");
         latestCurrencies.Result.CurrencyRates.Count.Should().Be(3);
         foundCurrencyRates[0].ToCurrency.Should().Be("USD");
-    }
+    }  
 }

@@ -1,5 +1,5 @@
 using Coravel;
-using currencyCalculator.Business.Services;
+using currencyCalculator.App.Services;
 class Program
 {
 public static void Main(string[] args)
@@ -8,7 +8,7 @@ public static void Main(string[] args)
     host.Services.UseScheduler(scheduler => {
         scheduler
             .Schedule<InvokeDb>()
-            .DailyAtHour(12);
+            .DailyAtHour(10);
     });
     host.Run();
 }

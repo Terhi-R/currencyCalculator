@@ -1,6 +1,6 @@
 using Coravel.Invocable;
-using currencyCalculator.Business.Models;
-using currencyCalculator.Business.Services;
+using currencyCalculator.App.Models;
+using currencyCalculator.App.Services;
 
 public class InvokeDb : IInvocable
 {
@@ -13,26 +13,27 @@ public class InvokeDb : IInvocable
     }
     public Task Invoke()
     {
-        Console.WriteLine("Program has ran");
         using (var context = new ApplicationDbContext())
         {
-            if (_rates is null) return Task.CompletedTask;
-            var listOfCurrencies = _rates.ReadCurrencies().Select(currency => currency.ToCurrency).ToList();
+            if (_rates is null || _currencyConverterClient is null) return Task.CompletedTask;
+
+            var listOfCurrencies = _rates
+                                    .ReadCurrencies()
+                                        .Select(currency => currency.ToCurrency)
+                                        .ToList();
+
             var currencyStr = string.Join(",", listOfCurrencies);
 
-
-            if (_currencyConverterClient is null) return Task.CompletedTask;
             var fetchNewRates = _currencyConverterClient.LatestCurrencyRates("EUR", currencyStr);
 
             var validRates = new List<CurrencyRate>();
-
             foreach (var newRate in fetchNewRates.Result.CurrencyRates)
             {
                 if (newRate is null) continue;
                 validRates.Add(newRate);
             }
 
-            validRates.ForEach(rate => context.CurrencyRate.Add(rate));
+            context.CurrencyRate.AddRange(validRates);
             context.SaveChanges();
         }
         return Task.CompletedTask;

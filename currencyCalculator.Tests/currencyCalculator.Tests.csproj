@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\currencyCalculator.Business\currencyCalculator.Business.csproj" />
+    <ProjectReference Include="..\currencyCalculator.App\currencyCalculator.App.csproj" />
   </ItemGroup>
 
 </Project>

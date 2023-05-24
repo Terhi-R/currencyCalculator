@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using currencyCalculator.Business.Models;
+using currencyCalculator.App.Models;
 using Microsoft.Extensions.Configuration;
 using currencyCalculator.App;
 
@@ -14,5 +14,5 @@ public class ApplicationDbContext : DbContext
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
     }
-        public DbSet<currencyCalculator.Business.Models.CurrencyRate> CurrencyRate { get; set; }
+        public DbSet<currencyCalculator.App.Models.CurrencyRate>? CurrencyRate { get; set; }
     }

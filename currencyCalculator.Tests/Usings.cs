@@ -1,3 +1,3 @@
 global using Xunit;
-global using currencyCalculator.Business;
+global using currencyCalculator.App;
 global using FluentAssertions;

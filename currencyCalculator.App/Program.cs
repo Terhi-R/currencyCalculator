@@ -1,20 +1,22 @@
-﻿using currencyCalculator.Business;
-using currencyCalculator.Business.Services;
+﻿using currencyCalculator.App;
+using currencyCalculator.App.Services;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace currencyCalculator.App;
 class Program
 {
     public static IRatesHandler? _rates { get; private set; }
     public static ICurrencyConverterClient? _currencyConverterClient { get; private set; }
-    public Program()
-    {
-        _rates = new RatesHandler();
-        _currencyConverterClient = new CurrencyConverterClient();
-    }
+
     static void Main(string[] args)
     {
+        var serviceProvider = new ServiceCollection()
+            .AddScoped<ICurrencyConverterClient, CurrencyConverterClient>()
+            .AddScoped<IRatesHandler, RatesHandler>()
+            .BuildServiceProvider();
+        _rates = serviceProvider.GetService<IRatesHandler>();
+        _currencyConverterClient = serviceProvider.GetService<ICurrencyConverterClient>();
+        
         SeedData.Initialize();
         RunConsole();
     }
