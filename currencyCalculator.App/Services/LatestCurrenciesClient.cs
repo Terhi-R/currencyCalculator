@@ -4,11 +4,11 @@ using currencyCalculator.App.Models;
 
 namespace currencyCalculator.App.Services;
 
-public class CurrencyConverterClient : ICurrencyConverterClient
+public class LatestCurrenciesClient : ILatestCurrenciesClient
 {
     public async Task<CurrencyResponse> CurrencyRatesByDate(string fromCurrency, string toCurrency, string date)
     {
-        var client = new HttpClient(); 
+        var client = new HttpClient();
         client.DefaultRequestHeaders.Accept.Clear();
         client.DefaultRequestHeaders.Add("apikey", "De44yfrdnSKryD5yzeSoOBiHemeQvmbi");
         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -22,7 +22,7 @@ public class CurrencyConverterClient : ICurrencyConverterClient
 
     public async Task<LatestRateResponse> LatestCurrencyRates(string baseCurrency, string toCurrencies)
     {
-        var client = new HttpClient(); 
+        var client = new HttpClient();
         client.DefaultRequestHeaders.Accept.Clear();
         client.DefaultRequestHeaders.Add("apikey", "De44yfrdnSKryD5yzeSoOBiHemeQvmbi");
         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

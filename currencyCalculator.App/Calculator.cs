@@ -6,11 +6,11 @@ namespace currencyCalculator.App;
 public class Calculator
 {
     private readonly IRatesHandler _rates;
-    private readonly ICurrencyConverterClient _currencyConverterClient;
-    public Calculator(IRatesHandler ratesHandler, ICurrencyConverterClient currencyConverter)
+    private readonly ILatestCurrenciesClient _latestCurrenciesClient;
+    public Calculator(IRatesHandler ratesHandler, ILatestCurrenciesClient currencyConverter)
     {
         _rates = ratesHandler;
-        _currencyConverterClient = currencyConverter;
+        _latestCurrenciesClient = currencyConverter;
     }
 
     public double CalculateCurrency(string fromCurrency, string toCurrency, double amount, string? date = null)
@@ -19,7 +19,7 @@ public class Calculator
 
         if (date is not null)
         {
-            var rateFromGivenDate = _currencyConverterClient
+            var rateFromGivenDate = _latestCurrenciesClient
                                         .CurrencyRatesByDate(fromCurrency, toCurrency, date);
             return rateFromGivenDate.Result.Rate * amount;
         }
@@ -32,7 +32,7 @@ public class Calculator
                             .FirstOrDefault();
 
         if (foundEURRate is 0.0 && !toCurrency.Equals("EUR")) throw new ArgumentNullException();
-        
+
         if (foundEURRate is 0.0 && toCurrency.Equals("EUR"))
         {
             foundEURRate = allRates

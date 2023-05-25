@@ -6,16 +6,16 @@ namespace currencyCalculator.App;
 class Program
 {
     public static IRatesHandler? _rates { get; private set; }
-    public static ICurrencyConverterClient? _currencyConverterClient { get; private set; }
+    public static ILatestCurrenciesClient? _latestCurrenciesClient { get; private set; }
 
     static void Main(string[] args)
     {
         var serviceProvider = new ServiceCollection()
-            .AddScoped<ICurrencyConverterClient, CurrencyConverterClient>()
+            .AddScoped<ILatestCurrenciesClient, LatestCurrenciesClient>()
             .AddScoped<IRatesHandler, RatesHandler>()
             .BuildServiceProvider();
         _rates = serviceProvider.GetService<IRatesHandler>();
-        _currencyConverterClient = serviceProvider.GetService<ICurrencyConverterClient>();
+        _latestCurrenciesClient = serviceProvider.GetService<ILatestCurrenciesClient>();
 
         if (_rates is null) throw new ArgumentNullException();
 
@@ -25,9 +25,9 @@ class Program
     }
     public static void RunConsole()
     {
-        if (_rates is null || _currencyConverterClient is null) throw new ArgumentNullException();
+        if (_rates is null || _latestCurrenciesClient is null) throw new ArgumentNullException();
 
-        var ratesCalculator = new Calculator(_rates, _currencyConverterClient);
+        var ratesCalculator = new Calculator(_rates, _latestCurrenciesClient);
         Console.WriteLine("Currency Rate Calculator");
         Console.WriteLine("Submit in format FromCurrency,ToCurrency,Amount,Date | Date is optional and is given in following format: YEAR-MM-DD.");
         Console.WriteLine("Example: EUR,USD,10 | Please communicate currencies in currency codes");
@@ -45,7 +45,7 @@ class Program
                                 .CalculateCurrency(fromCurrency, toCurrency, Convert.ToDouble(amount));
             Console.WriteLine($"{amount} {fromCurrency} is {currentRate} {toCurrency}");
             return;
-        }  
+        }
 
         var rateByDate = ratesCalculator
                             .CalculateCurrency(fromCurrency, toCurrency, Convert.ToDouble(amount), input?[3].Trim());

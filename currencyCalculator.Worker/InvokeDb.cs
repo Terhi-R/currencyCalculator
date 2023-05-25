@@ -5,17 +5,17 @@ using currencyCalculator.App.Services;
 public class InvokeDb : IInvocable
 {
     private static IRatesHandler? _rates;
-    private static ICurrencyConverterClient? _currencyConverterClient;
-    public InvokeDb(IRatesHandler ratesHandler, ICurrencyConverterClient currencyConverter)
+    private static ILatestCurrenciesClient? _latestCurrenciesClient;
+    public InvokeDb(IRatesHandler ratesHandler, ILatestCurrenciesClient currencyConverter)
     {
         _rates = ratesHandler;
-        _currencyConverterClient = currencyConverter;
+        _latestCurrenciesClient = currencyConverter;
     }
     public Task Invoke()
     {
         using (var context = new ApplicationDbContext())
         {
-            if (_rates is null || _currencyConverterClient is null) return Task.CompletedTask;
+            if (_rates is null || _latestCurrenciesClient is null) return Task.CompletedTask;
 
             var listOfCurrencies = _rates
                                     .ReadCurrencies()
@@ -24,7 +24,7 @@ public class InvokeDb : IInvocable
 
             var currencyStr = string.Join(",", listOfCurrencies);
 
-            var fetchNewRates = _currencyConverterClient.LatestCurrencyRates("EUR", currencyStr);
+            var fetchNewRates = _latestCurrenciesClient.LatestCurrencyRates("EUR", currencyStr);
 
             var validRates = new List<CurrencyRate>();
             foreach (var newRate in fetchNewRates.Result.CurrencyRates)

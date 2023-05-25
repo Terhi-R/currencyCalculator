@@ -8,20 +8,20 @@ public class CurrencyUnitTests
 {
     Calculator calculatorClass;
     private IRatesHandler _ratesHandler;
-    private ICurrencyConverterClient _currencyConverter;
+    private ILatestCurrenciesClient _latestCurrencies;
     public CurrencyUnitTests()
     {
         var serviceProvider = new ServiceCollection()
-                                .AddScoped<ICurrencyConverterClient, CurrencyConverterClient>()
+                                .AddScoped<ILatestCurrenciesClient, LatestCurrenciesClient>()
                                 .AddScoped<IRatesHandler, RatesHandler>()
                                 .BuildServiceProvider();
 
         _ratesHandler = serviceProvider.GetService<IRatesHandler>()!;
-        _currencyConverter = serviceProvider.GetService<ICurrencyConverterClient>()!;
+        _latestCurrencies = serviceProvider.GetService<ILatestCurrenciesClient>()!;
 
-        this.calculatorClass = new Calculator(_ratesHandler, _currencyConverter);
+        this.calculatorClass = new Calculator(_ratesHandler, _latestCurrencies);
     }
-    
+
     [Fact]
     public void calculator_does_calculation()
     {
@@ -32,7 +32,7 @@ public class CurrencyUnitTests
 
         //assert
         calculator.Should().Be(11.7010);
-    }  
+    }
 
     [Fact]
     public void calculator_will_throw_if_no_values_are_given()
@@ -44,7 +44,7 @@ public class CurrencyUnitTests
 
         //assert
         calculator.Should().Throw<InvalidDataException>();
-    }  
+    }
 
     [Fact]
     public void calculator_will_throw_if_currency_code_is_not_found()
@@ -96,7 +96,7 @@ public class CurrencyUnitTests
         calculator.Should().Be(expected);
     }
 
-     [Fact]
+    [Fact]
     public void calculator_gets_currency_rates_by_date_from_external_api()
     {
         //arrange
@@ -106,13 +106,13 @@ public class CurrencyUnitTests
 
         //assert
         calculator.Should().Be(23.929520000000004);
-    } 
+    }
 
     [Fact]
     public void latestRates_are_found_successfully_from_external_api()
     {
         //arrange
-        ICurrencyConverterClient currencyClient = new CurrencyConverterClient();
+        ILatestCurrenciesClient currencyClient = new LatestCurrenciesClient();
         var listOfCurrencies = _ratesHandler
                                     .ReadCurrencies()
                                         .Take(3)
@@ -128,5 +128,5 @@ public class CurrencyUnitTests
         latestCurrencies.Result.BaseCurrency.Should().Be("EUR");
         latestCurrencies.Result.CurrencyRates.Count.Should().Be(3);
         foundCurrencyRates[0].ToCurrency.Should().Be("USD");
-    }   
+    }
 }
